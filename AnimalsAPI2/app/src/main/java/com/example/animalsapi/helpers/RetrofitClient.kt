@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient {
     private var retrofit: Retrofit? = null
 
-    fun getClient(baseUrl: String): Retrofit{
+    fun getClient(url: String): Retrofit{
         if (retrofit == null) {
             val client = OkHttpClient().newBuilder()
             client.interceptors().add(Interceptor { chain ->
@@ -24,7 +24,7 @@ object RetrofitClient {
             } )
             retrofit = Retrofit.Builder()
                 .client(client.build())
-                .baseUrl(baseUrl)
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
