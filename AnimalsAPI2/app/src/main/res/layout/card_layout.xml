@@ -12,42 +12,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/image"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:contentDescription="@string/animalimage"
-            android:cropToPadding="false"
-            android:scaleType="center"
+            app:cardBackgroundColor="#6984FF"
+            app:cardCornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/animalimage"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
             android:maxLines="2"
-            android:text="N"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image"
-            app:layout_constraintTop_toTopOf="@+id/image" />
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="@+id/cardView" />
 
         <TextView
             android:id="@+id/type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="T"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/lifeSpan"
@@ -58,12 +61,10 @@
             android:id="@+id/lifeSpan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="L"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/image"
+            app:layout_constraintBottom_toBottomOf="@+id/cardView"
             app:layout_constraintStart_toStartOf="@+id/type" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
