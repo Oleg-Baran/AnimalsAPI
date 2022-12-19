@@ -52,14 +52,14 @@ class AnimalsFragment : Fragment() {
         dataFromAPI.getDataFromAPI()
         dataFromAPI.setData( object : DataAPI {
             @SuppressLint("NotifyDataSetChanged")
-            override fun getDataOkHttp(result: String?) {
+            override fun okHttpGetData(result: String?) {
                 val gson = Gson()
                 val typeToken = object : TypeToken<List<Animal>>() {}.type
                 val animal = gson.fromJson<List<Animal>>(result, typeToken)
                 animalArrayList.addAll(animal)
                 handler.post { adapter.notifyDataSetChanged() }
             }
-            override fun getDataRetrofit(result: Response<MutableList<Animal>>) {
+            override fun retrofitGetData(result: Response<MutableList<Animal>>) {
                 animalArrayList.addAll(result.body() as List<Animal>)
             }
         } )
